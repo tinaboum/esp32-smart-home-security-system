@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="460" viewBox="0 0 1900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Implemented IoT home security system architecture</title>
+  <desc id="desc">PIR, magnetic door, MQ5 gas and flame sensors connect to an ESP32-CAM. The controller applies event logic and captures JPEG images, then communicates through Wi-Fi with a Telegram bot and smartphone. Authorized commands return from Telegram to the controller.</desc>
+  <defs>
+    <style>
+      .title { font: 700 26px Arial, sans-serif; fill: #132238; letter-spacing: 1px; }
+      .layer { font: 700 17px Arial, sans-serif; fill: #C64372; letter-spacing: 1.5px; }
+      .node-title { font: 700 24px Arial, sans-serif; fill: #132238; }
+      .sensor-title { font: 700 19px Arial, sans-serif; fill: #132238; }
+      .body { font: 400 17px Arial, sans-serif; fill: #34445A; }
+      .small { font: 400 15px Arial, sans-serif; fill: #6E7B8E; }
+      .flow-label { font: 700 14px Arial, sans-serif; fill: #237C86; letter-spacing: .4px; }
+    </style>
+    <marker id="arrow-teal" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#237C86"/>
+    </marker>
+    <marker id="arrow-pink" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#C64372"/>
+    </marker>
+  </defs>
+
+  <rect width="1900" height="460" rx="22" fill="#FFFFFF"/>
+  <text x="55" y="42" class="title">IMPLEMENTED SYSTEM ARCHITECTURE</text>
+
+  <text x="55" y="82" class="layer">SENSING LAYER</text>
+  <rect x="55" y="100" width="225" height="92" rx="14" fill="#FCF1F5" stroke="#E9B9CA" stroke-width="2"/>
+  <circle cx="86" cy="130" r="10" fill="#C64372"/>
+  <text x="108" y="136" class="sensor-title">AM312 PIR</text>
+  <text x="78" y="168" class="small">Motion event</text>
+
+  <rect x="310" y="100" width="225" height="92" rx="14" fill="#FCF1F5" stroke="#E9B9CA" stroke-width="2"/>
+  <circle cx="341" cy="130" r="10" fill="#C64372"/>
+  <text x="363" y="136" class="sensor-title">Door contacts</text>
+  <text x="333" y="168" class="small">Open / closed state</text>
+
+  <rect x="55" y="222" width="225" height="92" rx="14" fill="#FCF1F5" stroke="#E9B9CA" stroke-width="2"/>
+  <circle cx="86" cy="252" r="10" fill="#C64372"/>
+  <text x="108" y="258" class="sensor-title">Gas / smoke</text>
+  <text x="78" y="290" class="small">MQ5 event</text>
+
+  <rect x="310" y="222" width="225" height="92" rx="14" fill="#FCF1F5" stroke="#E9B9CA" stroke-width="2"/>
+  <circle cx="341" cy="252" r="10" fill="#C64372"/>
+  <text x="363" y="258" class="sensor-title">Flame sensor</text>
+  <text x="333" y="290" class="small">Optical flame event</text>
+
+  <line x1="280" y1="146" x2="563" y2="146" stroke="#9AA6B5" stroke-width="3"/>
+  <line x1="535" y1="146" x2="563" y2="146" stroke="#9AA6B5" stroke-width="3"/>
+  <line x1="280" y1="268" x2="563" y2="268" stroke="#9AA6B5" stroke-width="3"/>
+  <line x1="535" y1="268" x2="563" y2="268" stroke="#9AA6B5" stroke-width="3"/>
+  <line x1="563" y1="146" x2="563" y2="268" stroke="#9AA6B5" stroke-width="3"/>
+  <line x1="563" y1="207" x2="640" y2="207" stroke="#237C86" stroke-width="5" marker-end="url(#arrow-teal)"/>
+  <text x="552" y="190" text-anchor="middle" class="flow-label">SENSOR INPUTS</text>
+
+  <text x="650" y="82" class="layer">EMBEDDED EDGE NODE</text>
+  <rect x="640" y="100" width="425" height="230" rx="18" fill="#F4F6F8" stroke="#237C86" stroke-width="3"/>
+  <rect x="640" y="100" width="425" height="52" rx="18" fill="#132238"/>
+  <path d="M640 134 H1065 V152 H640 Z" fill="#132238"/>
+  <text x="852" y="135" text-anchor="middle" style="font:700 25px Arial,sans-serif;fill:#FFFFFF">AI THINKER ESP32-CAM</text>
+  <text x="676" y="188" class="body">• Sensor acquisition</text>
+  <text x="676" y="222" class="body">• Event logic + monitoring flags</text>
+  <text x="676" y="256" class="body">• OV2640 JPEG capture</text>
+  <line x1="676" y1="274" x2="1026" y2="274" stroke="#D8DEE6" stroke-width="2"/>
+  <text x="852" y="299" text-anchor="middle" class="small">Door / motion → alert + image</text>
+  <text x="852" y="320" text-anchor="middle" class="small">MQ5 / flame → text alert</text>
+
+  <line x1="1065" y1="207" x2="1175" y2="207" stroke="#237C86" stroke-width="5" marker-end="url(#arrow-teal)"/>
+  <text x="1120" y="190" text-anchor="middle" class="flow-label">WI-FI</text>
+
+  <text x="1190" y="82" class="layer">NETWORK PATH</text>
+  <rect x="1175" y="126" width="240" height="162" rx="18" fill="#F4F6F8" stroke="#D8DEE6" stroke-width="2"/>
+  <circle cx="1295" cy="182" r="33" fill="#237C86"/>
+  <path d="M1273 184 Q1295 162 1317 184 M1281 193 Q1295 179 1309 193 M1290 201 Q1295 196 1300 201" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+  <text x="1295" y="244" text-anchor="middle" class="sensor-title">Router + Internet</text>
+  <text x="1295" y="271" text-anchor="middle" class="small">Remote connectivity</text>
+
+  <line x1="1415" y1="207" x2="1510" y2="207" stroke="#237C86" stroke-width="5" marker-end="url(#arrow-teal)"/>
+  <text x="1462" y="190" text-anchor="middle" class="flow-label">BOT API</text>
+
+  <text x="1520" y="82" class="layer">REMOTE INTERFACE</text>
+  <rect x="1510" y="100" width="335" height="214" rx="18" fill="#FCF1F5" stroke="#C64372" stroke-width="3"/>
+  <text x="1678" y="145" text-anchor="middle" class="node-title">Telegram Bot</text>
+  <text x="1678" y="178" text-anchor="middle" class="body">Authorized smartphone user</text>
+  <line x1="1550" y1="198" x2="1805" y2="198" stroke="#E9B9CA" stroke-width="2"/>
+  <text x="1678" y="230" text-anchor="middle" class="body">Text alerts + JPEG evidence</text>
+  <text x="1678" y="264" text-anchor="middle" class="body">Arm / disarm • photo • flash</text>
+  <text x="1678" y="292" text-anchor="middle" class="small">Chat-ID authorization check</text>
+
+  <path d="M1678 324 C1678 408 850 420 850 330" fill="none" stroke="#C64372" stroke-width="4" stroke-dasharray="11 9" marker-end="url(#arrow-pink)"/>
+  <rect x="1118" y="374" width="324" height="38" rx="19" fill="#FFFFFF" stroke="#E9B9CA" stroke-width="2"/>
+  <text x="1280" y="399" text-anchor="middle" class="flow-label" style="fill:#8F2850">AUTHORIZED REMOTE COMMANDS</text>
+</svg>
