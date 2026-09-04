@@ -1,0 +1,19 @@
+# Arduino build products
+build/
+*.elf
+*.hex
+*.bin
+*.map
+*.eep
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local credentials must never be committed
+secrets.h
+credentials.h
+.env
+.env.*
